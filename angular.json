@@ -1,30 +1,36 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
-  "newProjectRoot": "projects",
+  "version": 1,
+  "newProjectRoot": "",
   "projects": {
     "MLS-Initial-Design": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
-      "sourceRoot": "src",
+      "root": "apps/MLS-Initial-Design",
+      "sourceRoot": "apps/MLS-Initial-Design/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/MLS-Initial-Design",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "outputPath": "dist/apps/MLS-Initial-Design",
+            "index": "apps/MLS-Initial-Design/src/index.html",
+            "main": "apps/MLS-Initial-Design/src/main.ts",
+            "polyfills": "apps/MLS-Initial-Design/src/polyfills.ts",
+            "tsConfig": "apps/MLS-Initial-Design/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "apps/MLS-Initial-Design/src/favicon.ico",
+              "apps/MLS-Initial-Design/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
+                "output": "/assets/"
+              }
             ],
             "styles": [
-              "src/styles.css"
+              "apps/MLS-Initial-Design/src/theme.less",
+              "apps/MLS-Initial-Design/src/styles.css"
             ],
             "scripts": []
           },
@@ -32,8 +38,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "apps/MLS-Initial-Design/src/environments/environment.ts",
+                  "with": "apps/MLS-Initial-Design/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -79,16 +85,16 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "main": "apps/MLS-Initial-Design/src/test.ts",
+            "polyfills": "apps/MLS-Initial-Design/src/polyfills.ts",
+            "tsConfig": "apps/MLS-Initial-Design/tsconfig.spec.json",
+            "karmaConfig": "apps/MLS-Initial-Design/karma.conf.js",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "apps/MLS-Initial-Design/src/favicon.ico",
+              "apps/MLS-Initial-Design/src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "apps/MLS-Initial-Design/src/styles.css"
             ],
             "scripts": []
           }
@@ -97,19 +103,24 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
+              "apps/MLS-Initial-Design/tsconfig.app.json",
+              "apps/MLS-Initial-Design/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
             ]
           }
-        },
+        }
+      }
+    },
+    "MLS-Initial-Design-e2e": {
+      "projectType": "application",
+      "root": "apps/MLS-Initial-Design-e2e",
+      "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
+            "protractorConfig": "apps/MLS-Initial-Design-e2e/protractor.conf.js",
             "devServerTarget": "MLS-Initial-Design:serve"
           },
           "configurations": {
@@ -117,8 +128,18 @@
               "devServerTarget": "MLS-Initial-Design:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/MLS-Initial-Design-e2e/tsconfig.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "MLS-Initial-Design"
 }

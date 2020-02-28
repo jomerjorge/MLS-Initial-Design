@@ -1,0 +1,18 @@
+{
+  "npmScope": "mls-initial-design",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "MLS-Initial-Design": {
+      "tags": []
+    },
+    "MLS-Initial-Design-e2e": {
+      "tags": []
+    }
+  }
+}
