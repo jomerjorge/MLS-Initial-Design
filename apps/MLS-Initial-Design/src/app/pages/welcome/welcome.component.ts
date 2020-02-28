@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { products} from '../../../../../../libs/Sample-data/sample-data';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
+products = products;
   constructor() { }
 
   ngOnInit() {
