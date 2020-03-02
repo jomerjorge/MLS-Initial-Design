@@ -4,9 +4,8 @@ import { IntegrationComponent } from './integration/integration.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/welcome' },
-  { path: '', pathMatch: 'full', redirectTo: '/integration' },
   { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
-  { path: 'integration', component: IntegrationComponent },
+  { path: 'integration', component: IntegrationComponent, data: {title: '/MLS Initial Design/Integration Request'}},
 ];
 
 @NgModule({

@@ -7,15 +7,16 @@
             [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://assets-global.website-files.com/5c8953b557d74f690470eb19/5ceef3f6852b08dbfa9eb76c_5cc0c29fd5f41d7fd6c9d3ad_Placester.png" alt="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQyP1oxtTVid_eduh3NtLRJSzwwfawCl6NOlJWuD5av8MGK7Rky" alt="logo">
         <h1>MLS Initial Design</h1>
       </a>
+
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="Multiple Listing Service" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Integration</a>
+            <a routerLink="/welcome" >Integration</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/integration">Integration Request</a>
@@ -27,10 +28,17 @@
       </li>
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
         <ul>
+
+          <li nz-menu-item nzMatchRouter>
+            <a>Add New Data</a>
+          </li>
+
           <li nz-menu-item nzMatchRouter>
             <a>Basic Form</a>
           </li>
+
         </ul>
+        
       </li>
     </ul>
   </nz-sider>
@@ -43,10 +51,46 @@
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
         </span>
-      </div>
+        <span>
+          <button nz-button nzType="default"><i nz-icon nzType="plus"></i> Add New Item Here</button>
+        </span>
+        <span style="float: right; margin-right: 2%; color: rgb(73, 72, 72); @media (min-width: @screen-md-min) { .hidden-md { display: none !important; } }">
+            <nz-badge nzDot style="margin:0px 20px 0px 20px;"><i nz-icon nzType="notification" ></i></nz-badge>|
+            
+            <a style="margin:0px 2px 0px 2px;"><i nz-icon nzType="setting" nzTheme="outline"></i> Settings </a> |
+            <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"  style="margin:0px 5px 0px 20px;"></nz-avatar>                                                                                                                                                                                                    
+            <a nz-dropdown [nzDropdownMenu]="menu" [nzClickHide]="false" [(nzVisible)]="visible" style="text-decoration: none; color: rgb(54, 54, 54);">
+              Jomer Jorge
+              <i nz-icon nzType="down"></i>
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item>Profile</li>
+                <li nz-menu-item>Account Settings</li>
+                <li nz-menu-item (click)="visible = false">Close</li>
+              </ul>
+            </nz-dropdown-menu>
+         
+
+        </span>
+      </div>      
     </nz-header>
     <nz-content>
+
+
       <div class="inner-content">
+        <nz-breadcrumb>
+          <nz-breadcrumb-item>
+            <i nz-icon nzType="home"></i>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a><i nz-icon nzType="list"></i><span>MLS</span></a>
+          </nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            Application
+          </nz-breadcrumb-item>
+        </nz-breadcrumb><hr>
+        
         <router-outlet></router-outlet>
       </div>
     </nz-content>
