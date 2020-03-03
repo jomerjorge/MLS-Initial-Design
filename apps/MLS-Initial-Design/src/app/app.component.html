@@ -4,7 +4,7 @@
             nzWidth="256px"
             nzBreakpoint="md"
             [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
+            [nzTrigger]="null" >
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQyP1oxtTVid_eduh3NtLRJSzwwfawCl6NOlJWuD5av8MGK7Rky" alt="logo">
@@ -16,10 +16,13 @@
       <li nz-submenu nzOpen nzTitle="Multiple Listing Service" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome" >Integration</a>
+            <a routerLink="/welcome" >Welcome</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/integration">Integration Request</a>
+            <a routerLink="/integration">Integration</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/integrationrequest">Integration Request</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a>UI Subject for Modification</a>
@@ -28,7 +31,7 @@
       </li>
       <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
         <ul>
-
+          
           <li nz-menu-item nzMatchRouter>
             <a>Add New Data</a>
           </li>
@@ -42,6 +45,7 @@
       </li>
     </ul>
   </nz-sider>
+
   <nz-layout>
     <nz-header>
       <div class="app-header">
@@ -50,14 +54,12 @@
                nz-icon
                [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></i>
-        </span>
-        <span>
-          <button nz-button nzType="default"><i nz-icon nzType="plus"></i> Add New Item Here</button>
+            <label> Menu</label>
         </span>
         <span style="float: right; margin-right: 2%; color: rgb(73, 72, 72); @media (min-width: @screen-md-min) { .hidden-md { display: none !important; } }">
-            <nz-badge nzDot style="margin:0px 20px 0px 20px;"><i nz-icon nzType="notification" ></i></nz-badge>|
+            <nz-badge nzDot style="margin:0px 20px 0px 20px;"><i nz-icon nzType="notification" ></i></nz-badge>
             
-            <a style="margin:0px 2px 0px 2px;"><i nz-icon nzType="setting" nzTheme="outline"></i> Settings </a> |
+            <a style="margin:0px 2px 0px 2px;"><i nz-icon nzType="setting" nzTheme="outline"></i> Settings </a> 
             <nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"  style="margin:0px 5px 0px 20px;"></nz-avatar>                                                                                                                                                                                                    
             <a nz-dropdown [nzDropdownMenu]="menu" [nzClickHide]="false" [(nzVisible)]="visible" style="text-decoration: none; color: rgb(54, 54, 54);">
               Jomer Jorge
@@ -90,7 +92,6 @@
             Application
           </nz-breadcrumb-item>
         </nz-breadcrumb><hr>
-        
         <router-outlet></router-outlet>
       </div>
     </nz-content>
